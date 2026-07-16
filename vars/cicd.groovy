@@ -15,3 +15,7 @@ def gittesting(repo,jobname)
   git "https://github.com/Sandeeppappula/${repo}.git"
   sh "java -jar /var/lib/jenkins/workspace/${jobname}/testing.jar"
 }
+def gitdelivary(jobname,ipaddress,contextpath)
+{
+    sh "scp /var/lib/jenkins/workspace/${jobname}/webapp/target/webapp.war ubuntu@${ipaddress}:/var/lib/tomcat10/webapps/${contextpath}"
+}
