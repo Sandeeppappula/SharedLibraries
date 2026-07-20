@@ -8,7 +8,7 @@ def gitbuild()
 }
 def gitdeploy(ipaddress,contextpath)
 {
-  sh "scp ${WORKSPACE}/${JOB_NAME}/webapp/target/webapp.war ubuntu@${ipaddress}:/var/lib/tomcat10/webapps/${contextpath}.war"
+  sh "scp /var/lib/jenkins/workspace/${JOB_NAME}/webapp/target/webapp.war ubuntu@${ipaddress}:/var/lib/tomcat10/webapps/${contextpath}.war"
 }
 def gittesting(repo,jobname)
 {
@@ -17,5 +17,5 @@ def gittesting(repo,jobname)
 }
 def gitdelivary(ipaddress,contextpath)
 {
-    sh "scp ${WORKSPACE}/${JOB_NAME}/webapp/target/webapp.war ubuntu@${ipaddress}:/var/lib/tomcat10/webapps/${contextpath}.war"
+    sh "scp /var/lib/jenkins/workspace/${JOB_NAME}/webapp/target/webapp.war ubuntu@${ipaddress}:/var/lib/tomcat10/webapps/${contextpath}.war"
 }
